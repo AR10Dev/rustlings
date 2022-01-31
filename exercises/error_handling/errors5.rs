@@ -4,14 +4,16 @@
 // It won't compile right now! Why?
 // Execute `rustlings hint errors5` for hints!
 
-// I AM NOT DONE
+
 
 use std::error;
 use std::fmt;
 use std::num::ParseIntError;
 
+type MainResult<T> = std::result::Result<T, Box<dyn error::Error>>;
+
 // TODO: update the return type of `main()` to make this compile.
-fn main() -> Result<(), ParseIntError> {
+fn main() -> MainResult<()> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
